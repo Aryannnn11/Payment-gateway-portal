@@ -1,0 +1,263 @@
+/* ==========================================
+   PAYMENT PAGE
+========================================== */
+
+.payment-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background: #f5f7fb;
+}
+
+
+/* ==========================================
+   PAYMENT CARD
+========================================== */
+
+.payment-card {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 42px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.payment-card .back-button {
+    display: inline-flex;
+    align-items: center;
+
+    width: auto;
+
+    margin: 0 0 28px 0;
+    padding: 0;
+
+    background: transparent;
+    color: #374151;
+
+    border: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.payment-card .back-button:hover {
+    color: #111827;
+    transform: translateX(-2px);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.payment-header {
+    margin-bottom: 35px;
+}
+
+.payment-header h1 {
+    margin: 0 0 10px;
+
+    font-size: 38px;
+
+    color: #111827;
+}
+
+.payment-header p {
+    margin: 0;
+
+    font-size: 17px;
+
+    color: #64748b;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.payment-card form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+/* ==========================================
+   FORM GROUP
+========================================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 17px;
+    font-weight: 600;
+
+    color: #111827;
+}
+
+
+/* ==========================================
+   INPUT + SELECT
+========================================== */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    background: white;
+
+    color: #111827;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #64748b;
+
+    box-shadow:
+        0 0 0 3px rgba(100, 116, 139, 0.12);
+}
+
+
+/* ==========================================
+   PAY BUTTON
+========================================== */
+
+.payment-card .pay-button {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #111827;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.payment-card .pay-button:hover:not(:disabled) {
+    background: #1f2937;
+
+    transform: translateY(-1px);
+}
+
+.payment-card .pay-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* ==========================================
+   PAYMENT MESSAGE
+========================================== */
+
+.payment-message {
+    margin: 25px 0 0;
+
+    padding: 14px 16px;
+
+    border-radius: 8px;
+
+    background: #f1f5f9;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    word-break: break-word;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .payment-page {
+        align-items: flex-start;
+
+        padding: 25px 15px;
+    }
+
+    .payment-card {
+        padding: 28px 22px;
+
+        border-radius: 12px;
+    }
+
+    .payment-header h1 {
+        font-size: 30px;
+    }
+
+    .payment-header p {
+        font-size: 15px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 13px 14px;
+
+        font-size: 15px;
+    }
+
+    .payment-card .pay-button {
+        padding: 14px;
+
+        font-size: 16px;
+    }
+}

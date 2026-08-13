@@ -1,0 +1,484 @@
+/* ==========================================
+   GLOBAL
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #111827;
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard {
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+}
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.navbar-actions button {
+    min-width: 120px;
+    padding: 11px 20px;
+}
+.navbar-actions .payment-btn {
+    background: #111827;
+    color: white;
+}
+
+.navbar-actions .payment-btn:hover {
+    background: #1f2937;
+}
+
+.navbar-actions .logout-btn {
+    background: #f1f1f1;
+    color: #111827;
+}
+
+.navbar-actions .logout-btn:hover {
+    background: #e5e7eb;
+}
+.navbar h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.navbar button {
+    border: none;
+    background: #f1f1f1;
+
+    padding: 12px 22px;
+    border-radius: 8px;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.navbar button:hover {
+    background: #e5e7eb;
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.dashboard-content {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 55px 0;
+}
+
+
+/* ==========================================
+   WELCOME
+========================================== */
+
+.welcome-section {
+    margin-bottom: 35px;
+}
+
+.welcome-section h1 {
+    margin: 0 0 12px;
+
+    font-size: 38px;
+}
+
+.welcome-section p {
+    margin: 0;
+
+    font-size: 18px;
+    color: #64748b;
+}
+
+
+/* ==========================================
+   STATISTICS
+========================================== */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 45px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card h3 {
+    margin: 0 0 25px;
+
+    color: #64748b;
+
+    font-size: 21px;
+}
+
+.stat-card p {
+    margin: 0;
+
+    font-size: 32px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   ANALYTICS
+========================================== */
+
+.analytics-section {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 14px;
+
+    margin-bottom: 40px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.analytics-section h2 {
+    margin-top: 0;
+
+    font-size: 27px;
+}
+
+.chart-container {
+    width: 100%;
+
+    min-height: 350px;
+}
+
+
+/* ==========================================
+   PAYMENTS
+========================================== */
+
+.payments-section {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.payments-section h2 {
+    margin-top: 0;
+
+    margin-bottom: 30px;
+
+    font-size: 27px;
+}
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+th {
+    text-align: left;
+
+    padding: 16px;
+
+    font-size: 15px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+    padding: 18px 16px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.status.success {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+.status.failed {
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+.status.pending {
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.dashboard-loading {
+    text-align: center;
+
+    padding: 100px 20px;
+}
+
+.dashboard-loading h2 {
+    margin-bottom: 10px;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.dashboard-error {
+    text-align: center;
+
+    padding: 100px 20px;
+}
+
+.dashboard-error h2 {
+    margin-bottom: 15px;
+}
+
+.dashboard-error p {
+    color: #dc2626;
+
+    margin-bottom: 20px;
+}
+
+.dashboard-error button {
+    border: none;
+
+    background: #111827;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-content {
+        width: 92%;
+    }
+
+    .navbar {
+        padding: 0 30px;
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 18px 20px;
+
+        gap: 15px;
+    }
+
+    .navbar h2 {
+        font-size: 22px;
+    }
+
+    .navbar button {
+        padding: 9px 15px;
+
+        font-size: 14px;
+    }
+
+
+    .dashboard-content {
+        width: 92%;
+
+        padding: 35px 0;
+    }
+
+
+    .welcome-section {
+        margin-bottom: 25px;
+    }
+
+    .welcome-section h1 {
+        font-size: 28px;
+
+        line-height: 1.3;
+    }
+
+    .welcome-section p {
+        font-size: 15px;
+    }
+
+
+    .stats {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .stat-card {
+        padding: 22px;
+    }
+
+    .stat-card h3 {
+        font-size: 18px;
+
+        margin-bottom: 15px;
+    }
+
+    .stat-card p {
+        font-size: 28px;
+    }
+
+
+    .analytics-section {
+        padding: 22px;
+
+        margin-bottom: 25px;
+    }
+
+    .analytics-section h2 {
+        font-size: 22px;
+    }
+
+
+    .chart-container {
+        min-height: 250px;
+    }
+
+
+    .payments-section {
+        padding: 22px;
+    }
+
+    .payments-section h2 {
+        font-size: 22px;
+    }
+
+
+    /*
+       Table can scroll horizontally
+       instead of breaking the page
+    */
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 800px;
+    }
+
+}
+.navbar-actions .history-btn {
+    background: #f1f1f1;
+    color: #111827;
+}
+
+.navbar-actions .history-btn:hover {
+    background: #e5e7eb;
+}
