@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 import { useState } from "react";
 
 function Login() {
@@ -9,7 +11,7 @@ function Login() {
 
         try {
             const response = await fetch(
-                "http://localhost:5000/api/users/login",
+                `${API_URL}/api/users/login`,
                 {
                     method: "POST",
                     headers: {
