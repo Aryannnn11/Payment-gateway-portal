@@ -1,13 +1,16 @@
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setMessage("");
 
         try {
             const response = await fetch(
@@ -26,7 +29,10 @@ function Login() {
 
             const data = await response.json();
 
-            console.log("Server response:", data);
+            if (!response.ok) {
+                setMessage(data.message || "Login failed");
+                return;
+            }
 
          if (response.ok) {
             localStorage.setItem("token", data.token);
@@ -37,6 +43,7 @@ function Login() {
 
         } catch (error) {
             console.error("Login error:", error);
+            setMessage("Unable to connect to the server");
         }
     };
 
@@ -72,7 +79,9 @@ function Login() {
                     Login
                 </button>
 
+                {message && <p role="alert">{message}</p>}
             </form>
+            <p>New here? <Link to="/register">Create an account</Link></p>
         </div>
     );
 }
