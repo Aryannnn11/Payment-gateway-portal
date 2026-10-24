@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
@@ -15,7 +16,6 @@ function Register() {
         event.preventDefault();
         setMessage("");
         setLoading(true);
-
         try {
             const response = await fetch(`${API_URL}/api/users/register`, {
                 method: "POST",
@@ -37,27 +37,29 @@ function Register() {
     };
 
     return (
-        <div>
-            <h1>Payment Gateway Portal</h1>
-            <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="register-name">Name</label>
-                    <input id="register-name" type="text" required value={name} onChange={(event) => setName(event.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="register-email">Email</label>
-                    <input id="register-email" type="email" required value={email} onChange={(event) => setEmail(event.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="register-password">Password</label>
-                    <input id="register-password" type="password" required minLength={8} value={password} onChange={(event) => setPassword(event.target.value)} />
-                </div>
-                {message && <p role="alert">{message}</p>}
-                <button type="submit" disabled={loading}>{loading ? "Creating account..." : "Register"}</button>
-            </form>
-            <p>Already have an account? <Link to="/login">Login</Link></p>
-        </div>
+        <main className="auth-page">
+            <section className="auth-card">
+                <h1 className="auth-brand">Payment Gateway Portal</h1>
+                <h2>Create account</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="auth-field">
+                        <label htmlFor="register-name">Full name</label>
+                        <input id="register-name" type="text" autoComplete="name" required value={name} onChange={(event) => setName(event.target.value)} />
+                    </div>
+                    <div className="auth-field">
+                        <label htmlFor="register-email">Email address</label>
+                        <input id="register-email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} />
+                    </div>
+                    <div className="auth-field">
+                        <label htmlFor="register-password">Password</label>
+                        <input id="register-password" type="password" autoComplete="new-password" required minLength={8} value={password} onChange={(event) => setPassword(event.target.value)} />
+                    </div>
+                    {message && <p className="auth-error" role="alert">{message}</p>}
+                    <button className="auth-submit" type="submit" disabled={loading}>{loading ? "Creating account..." : "Register"}</button>
+                </form>
+                <p className="auth-footer">Already have an account? <Link to="/login">Login</Link></p>
+            </section>
+        </main>
     );
 }
 
