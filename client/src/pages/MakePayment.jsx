@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 import { useState } from "react";
 import "./MakePayment.css";
 
@@ -81,7 +83,7 @@ const MakePayment = () => {
             // ------------------------------------------
 
             const orderResponse = await fetch(
-                "http://localhost:5000/api/payments/create-order",
+                `${API_URL}/api/payments/create-order`,
                 {
                     method: "POST",
 
@@ -163,7 +165,7 @@ const MakePayment = () => {
                 handler: async function (response) {
                     try {
                         const verifyResponse = await fetch(
-                            "http://localhost:5000/api/payments/verify-payment",
+                            `${API_URL}/api/payments/verify-payment`,
                             {
                                 method: "POST",
 
@@ -291,7 +293,7 @@ const MakePayment = () => {
 
                     try {
                         const failureResponse = await fetch(
-                            "http://localhost:5000/api/payments/record-failure",
+                            `${API_URL}/api/payments/record-failure`,
                             {
                                 method: "POST",
 
