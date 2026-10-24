@@ -1,3 +1,5 @@
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 import {
     Fragment,
     useEffect,
@@ -32,7 +34,7 @@ const PaymentHistory = () => {
             try {
 
                 const response = await fetch(
-                    "http://localhost:5000/api/payments/history",
+                    `${API_URL}/api/payments/history`,
                     {
                         method: "GET",
 
