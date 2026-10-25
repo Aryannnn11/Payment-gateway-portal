@@ -6,6 +6,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/users");
 const paymentRoutes = require("./routes/payments");
 const dashboardRoutes = require("./routes/dashboard");
+const webhookRoutes = require("./routes/webhook");
 
 const app = express();
 
@@ -15,6 +16,9 @@ const app = express();
 // ==========================================
 
 app.use(cors());
+// Webhook signatures require the unmodified raw request bytes.
+// Register this endpoint before the global JSON body parser.
+app.use("/api/webhooks", express.raw({ type: "application/json", limit: "1mb" }), webhookRoutes);
 app.use(express.json());
 
 
